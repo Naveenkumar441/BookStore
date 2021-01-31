@@ -8,13 +8,26 @@ namespace BookStore.Controllers
 {
     public class HomeController : Controller
     {
-        public string Index()
+        public ViewResult Index()
         {
-            return "Hello from Home Controller index";
+            //var obj = new { Id = 1, Name = "Naveen" };
+            //return View(obj);
+            //return View("AboutUS",obj);
+            //return View("../../TempView/NaveenTemp"); --for external view
+            //return View("TempView/NaveenTemp.cshtml");--for external view
+            //return View("~/TempView/NaveenTemp.cshtml");--for external view
+            //return View("AboutUS");
+            //return "Hello from Home Controller index";
+            return View();
         }
-        public string ContactUs()
+        public ViewResult ContactUs()
         {
-            return "Hello from Home Controller Contact Us";
+            return View();
+            //return "Hello from Home Controller Contact Us";
+        }
+        public ViewResult AboutUs()
+        {
+            return View();
         }
     }
 }
