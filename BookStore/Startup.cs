@@ -16,6 +16,8 @@ namespace BookStore
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddMvc();
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,21 +37,52 @@ namespace BookStore
 
             app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.Map("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
-            });
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapGet("/", async context =>
+            //    {
+            //        await context.Response.WriteAsync("Hello World!");
+            //    });
+            //});
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.Map("naveen", async context =>
-                {
-                    await context.Response.WriteAsync("Hello Naveen!");
-                });
+                endpoints.MapDefaultControllerRoute();
             });
+
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapGet("/", async context => 
+            //    {
+            //        if (env.IsEnvironment("Development"))
+            //        {
+            //            await context.Response.WriteAsync("Hello from custome name check");
+            //        }
+            //        //if(env.IsDevelopment())
+            //        //{
+            //        //    await context.Response.WriteAsync("Hello from Development");
+            //        //}
+            //        //else if(env.IsProduction())
+            //        //{
+            //        //    await context.Response.WriteAsync("Hello from Production");
+            //        //}
+            //        //else if(env.IsStaging())
+            //        //{
+            //        //    await context.Response.WriteAsync("Hello from Stagging");
+            //        //}
+            //        else
+            //        await context.Response.WriteAsync(env.EnvironmentName);
+            //    });
+
+            //});
+
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.Map("naveen", async context =>
+            //    {
+            //        await context.Response.WriteAsync("Hello Naveen!");
+            //    });
+            //});
         }
     }
 }
